@@ -44,8 +44,26 @@ function playRound(playerSelection , computerSelection){
     
 }
 
-    const playerSelection = "rock".toLowerCase();
-    console.log(playerSelection);
-    const computerSelection = getComputerChoice();
-    console.log(computerSelection);
-    console.log(playRound(playerSelection , computerSelection));
+   function playGame(){ 
+    let playerScore = 0;
+    let computerScore = 0;
+    
+    for(var i = 0; i < 5; i++ ){
+        const playerSelection = prompt("Select your action").toLowerCase();
+        const computerSelection = getComputerChoice();
+        console.log(playRound(playerSelection , computerSelection));
+
+        if(playRound(playerSelection , computerSelection) == "You Win! Scissors beats Paper!" 
+        || playRound(playerSelection , computerSelection) == "You Win! Paper beats Rock!"
+        || playRound(playerSelection , computerSelection) == "You Win! Rock beats Scissors!")
+        playerScore++;
+        else if(playRound(playerSelection , computerSelection) == "You Lose! Paper beats Rock!"
+                || playRound(playerSelection , computerSelection == "You Lose! Rock beats Scissors")
+                || playRound(playerSelection , computerSelection) == "You Lose! Scissors beats Paper")
+                computerScore++;
+    }
+        console.log("Win = " + playerScore + " , Lose = " + computerScore);
+   }
+
+   playGame();
+
